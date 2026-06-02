@@ -6,19 +6,20 @@
 <title>FIFA World Cup 2026 — Infectious Disease Risk · IDCUP 26 Working Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:        #1a1a1a;
-    --ink-soft:   #4a4a4a;
-    --ink-faint:  #8a8a8a;
-    --rule:       #d8d4cc;
-    --rule-soft:  #ebe7df;
-    --paper:      #faf7f2;
-    --paper-tint: #f3efe7;
-    --accent:     #2f5061;
-    --accent-soft:#5a7a8a;
-    --warn:       #a04545;
+    --ink:        #24224C;   /* InsightNet midnight indigo (primary) */
+    --ink-soft:   #4F758B;   /* basin slate (secondary text) */
+    --ink-faint:  #8a9bac;   /* muted slate (labels) */
+    --rule:       #cbd9e2;
+    --rule-soft:  #e6eef4;
+    --paper:      #eaf3f9;   /* InsightNet pale-blue page surface */
+    --paper-tint: #ffffff;   /* white cards lift off the pale-blue */
+    --accent:     #065D89;   /* deep blue (links / accents) */
+    --accent-soft:#5197CB;   /* cerulean (hover / secondary) */
+    --teal:       #5ABAB6;   /* teal (tertiary accent) */
+    --warn:       #b10026;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -26,16 +27,32 @@
     font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  .frame { max-width: 1100px; margin: 0 auto; padding: 60px 48px 80px; }
+  body { position: relative; }
+  /* InsightNet floral watermark: a soft band across the top that fades out behind the lead */
+  body::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 780px;
+    background: url('images/insightnet-watermark.png') no-repeat center top;
+    background-size: cover;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 42%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, transparent 42%, #000 100%);
+    z-index: 0; pointer-events: none;
+  }
+  .frame { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 60px 48px 80px; }
 
   /* Masthead */
   .masthead {
-    border-top: 3px solid var(--ink); border-bottom: 1px solid var(--rule);
+    position: relative;
+    border-bottom: 1px solid var(--rule);
     padding: 22px 0 18px; margin-bottom: 32px;
+  }
+  /* InsightNet brand stripe: indigo -> deep blue -> cerulean -> teal */
+  .masthead::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+    background: linear-gradient(90deg, var(--ink) 0%, var(--accent) 38%, var(--accent-soft) 70%, var(--teal) 100%);
   }
   .eyebrow {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
   }
   /* Masthead 2-row grid: eyebrow spans top; title-block + logo share row 2 */
   .masthead-grid {
@@ -59,7 +76,7 @@
 
   .title {
     display: block;
-    font-family: 'Spectral', serif; font-weight: 600;
+    font-family: 'Lato', sans-serif; font-weight: 900;
     font-size: 42px; line-height: 1.08; letter-spacing: -0.01em;
     margin-top: 6px;
   }
@@ -81,14 +98,14 @@
   }
   .lead-main p { margin-bottom: 14px; color: var(--ink-soft); }
   .lede-big {
-    font-family: 'Spectral', serif; font-weight: 500;
-    font-size: 19px; line-height: 1.45; color: var(--ink);
+    font-family: 'Lato', sans-serif; font-weight: 400;
+    font-size: 19px; line-height: 1.5; color: var(--ink);
     margin-bottom: 18px !important;
   }
-  .lede-big em { font-style: italic; color: var(--accent); }
+  .lede-big em { font-style: normal; font-weight: 700; color: var(--accent); }
 
   .lead-side {
-    border-left: 1px solid var(--rule); padding-left: 22px;
+    border-left: 2px solid var(--teal); padding-left: 22px;
     font-size: 13px; color: var(--ink-soft);
   }
   .lead-side h4 {
@@ -116,7 +133,7 @@
   .centers-list li::before {
     content: ''; display: inline-block;
     width: 5px; height: 5px;
-    background: var(--accent); flex-shrink: 0;
+    background: var(--teal); flex-shrink: 0;
     transform: translateY(-1px);
   }
   .centers-list li a {
@@ -138,10 +155,10 @@
 
   /* Section header */
   .section-h {
-    font-family: 'Spectral', serif; font-weight: 600;
+    font-family: 'Lato', sans-serif; font-weight: 700;
     font-size: 22px; color: var(--ink);
     margin: 10px 0 18px;
-    padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px; border-bottom: 2px solid var(--accent);
     display: flex; align-items: baseline; justify-content: space-between;
   }
   .section-h .section-h-meta {
@@ -157,21 +174,25 @@
   .tool-card {
     display: block; text-decoration: none; color: var(--ink);
     background: var(--paper-tint); border: 1px solid var(--rule);
-    padding: 24px 24px 20px;
-    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+    border-top: 3px solid var(--accent);
+    padding: 22px 24px 20px;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
+  /* Each tool card gets its own brand-color top edge */
+  .tools-grid .tool-card:nth-of-type(1) { border-top-color: var(--accent); }
+  .tools-grid .tool-card:nth-of-type(2) { border-top-color: var(--teal); }
   .tool-card:hover {
-    border-color: var(--ink);
-    background: #fdfaf3;
+    border-color: var(--rule);
     transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(36,34,76,0.12);
   }
   .tool-card-eyebrow {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
     letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--ink-faint); margin-bottom: 10px;
+    color: var(--accent); margin-bottom: 10px;
   }
   .tool-card-h {
-    font-family: 'Spectral', serif; font-weight: 600;
+    font-family: 'Lato', sans-serif; font-weight: 700;
     font-size: 22px; line-height: 1.2; color: var(--ink);
     margin-bottom: 10px;
   }
