@@ -4,6 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FIFA World Cup 2026 — Infectious Disease Risk · IDCUP 26 Working Group</title>
+<meta name="description" content="Pathogen-specific infectious disease risk for the 2026 FIFA World Cup — importation, outbreak potential, and impact — with published tools from the CDC/CFA Insight Net working group.">
+<!-- Open Graph / link-preview metadata -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IDCUP 26 — CDC/CFA Insight Net Working Group">
+<meta property="og:title" content="FIFA World Cup 2026 — Infectious Disease Risk">
+<meta property="og:description" content="Pathogen-specific risk for the 2026 FIFA World Cup across importation, outbreak potential, and impact — with the working group's published tools.">
+<meta property="og:url" content="https://insightnet-us.github.io/InsightNet-WorldCup/">
+<meta property="og:image" content="https://insightnet-us.github.io/InsightNet-WorldCup/images/og-preview.png">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="FIFA World Cup 2026 — Infectious Disease Risk, tools from the CDC/CFA Insight Net working group">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FIFA World Cup 2026 — Infectious Disease Risk">
+<meta name="twitter:description" content="Pathogen-specific risk for the 2026 FIFA World Cup across importation, outbreak potential, and impact — with the working group's published tools.">
+<meta name="twitter:image" content="https://insightnet-us.github.io/InsightNet-WorldCup/images/og-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -246,6 +261,45 @@
     line-height: 1.6;
     color: var(--ink-faint);
     text-align: justify;
+  }
+
+  /* === Responsive ============================================================
+     Reflow the multi-column layouts for tablet / phone widths, mirroring the
+     dashboard's breakpoints (720px, 460px). Palette, fonts, brand stripe, and
+     watermark are unchanged — only column counts, spacing, and a couple of
+     display sizes adapt, so the look and feel is preserved. === */
+  @media (max-width: 720px) {
+    .frame { padding: 40px 24px 64px; }
+
+    /* Masthead: stack the logo under the title; step the display type down. */
+    .masthead-grid { grid-template-columns: 1fr; }
+    .masthead-logo { grid-column: 1; align-self: start; margin-top: 12px; }
+    .title { font-size: 32px; }
+    .title-secondary { font-size: 20px; }
+    .meta { gap: 14px; }
+
+    /* Lead: stack the intro above the side note; its rule moves to the top. */
+    .lead { grid-template-columns: 1fr; gap: 28px; margin: 24px 0 32px; }
+    .lede-big { font-size: 18px; }
+    .lead-side {
+      border-left: none; border-top: 2px solid var(--teal);
+      padding-left: 0; padding-top: 18px;
+    }
+
+    /* Tools: one card per row. */
+    .tools-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 460px) {
+    .frame { padding: 32px 16px 52px; }
+    .title { font-size: 26px; }
+    .title-secondary { font-size: 17px; }
+    .lede-big { font-size: 17px; }
+    .section-h { font-size: 20px; }
+    .tool-card-h { font-size: 20px; }
+    .tool-card { padding: 20px 18px 18px; }
+    /* Pull the watermark band up so it doesn't loom over short phone layouts. */
+    body::before { height: 560px; }
   }
 
 </style>
