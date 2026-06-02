@@ -1,3 +1,6 @@
 
 # rendering-only fonts for scripts/make-og-image.py
 .fonts/
+
+# Windows mark-of-the-web junk
+*:Zone.Identifier
